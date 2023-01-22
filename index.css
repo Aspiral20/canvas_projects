@@ -1,0 +1,314 @@
+*, body, button, nav, p, a, section, li, ul, ol, input, img h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  list-style: none;
+  background-color: white;
+}
+
+button {
+  cursor: pointer;
+}
+
+#canvas {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cursor_panel {
+  display: flex;
+  align-items: center;
+}
+
+#control_panel {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 1s;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  padding: 5px;
+  border-bottom: .5px solid black;
+}
+
+#control_panel.active {
+  top: 0;
+  transition: 1s;
+}
+
+.control_panel_toggle {
+  z-index: -1;
+  position: absolute;
+  transform: rotate(180deg) scale(1.5, 1);
+  /*z-index: 1;*/
+  font-size: 28px;
+  height: 27px;
+  bottom: -28px;
+  left: calc(50% - 17px);
+}
+
+.cp_item {
+  margin-left: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.cp_main-button {
+  padding: 4px;
+  border: 1px solid black;
+}
+
+.cp_toggle {
+  display: none;
+  position: absolute;
+  border: 1px solid black;
+  padding: 5px;
+  top: 40px;
+  left: 0;
+  width: 200px;
+}
+
+.cp_toggle.active {
+  display: block;
+}
+
+.hotkey_item {
+  position: relative;
+  display: flex;
+  padding-bottom: 7px;
+  justify-content: space-between;
+}
+
+.hotkey_item:last-child {
+  padding-bottom: 0;
+}
+
+.cp_toggle_triangle_container {
+  align-self: center;
+  padding: 3px;
+}
+
+.cp_toggle_triangle {
+  cursor: pointer;
+  transition: 1s;
+  width: 18px;
+  height: 18px;
+  align-self: center;
+}
+
+.cp_toggle_triangle.active {
+  transition: 1s;
+}
+
+.hotkey_item_description_button {
+  transform: rotate(-90deg);
+}
+
+.hotkey_item_description_button.active {
+  transition: 1s;
+  transform: rotate(90deg);
+}
+
+
+.description_text {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  display: none;
+  left: calc(100% + 14px);
+  top: 0;
+  text-align: center;
+  color: darkred;
+  border: 1px solid black;
+}
+
+.description_text.active {
+  display: flex;
+}
+
+.colors__palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 20px);
+  grid-gap: 5px;
+}
+
+.input_palette {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.change_color {
+  height: 30px;
+}
+
+.cp_square_container {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+}
+
+.color_block {
+  padding: 2px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+}
+
+.color_block:first-child {
+  margin-left: 0;
+}
+
+.cp_style_amount {
+  width: auto;
+}
+
+.cp_main-button_box {
+  display: flex;
+}
+
+.cp_main-button_box .cp_character {
+  height: 20px;
+}
+
+.cp_main-button_box .cp_main-button_number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  width: auto;
+  height: 20px;
+  margin-left: 5px;
+}
+
+.cp_amount_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+.cp_amount_number {
+  border: 1px solid #3f3f3f;
+  padding: 3px;
+  width: 52px;
+}
+
+.cp_amount_approve {
+  border: 1px solid #3f3f3f;
+  margin-right: 10px;
+  transition: .2s;
+  font-size: 14px;
+  padding: 3px;
+}
+
+.cp_amount_approve:hover {
+  transition: .2s;
+  opacity: .8;
+  background-color: #3f3f3f;
+  color: white;
+}
+
+
+.approve_color {
+}
+
+.approve_color:hover {
+}
+
+.image_checkbox {
+  width: 13px;
+  height: 13px;
+  margin: 0 5px;
+}
+
+.background_image_container {
+  justify-self: start;
+}
+.cp_photo_button {
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.another_control .cp_toggle {
+  right: 0;
+  left: auto;
+}
+
+.image_list_container {
+  position: relative;
+  margin-left: 6px;
+}
+
+.cp_input_container {
+  display: flex;
+}
+
+.cp_input_list {
+  padding: 2px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.cp_open_list {
+  display: none;
+  flex-wrap: wrap;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 37px;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.cp_open_list.active {
+  display: flex;
+}
+
+.cp_option_list {
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid black;
+  transition: .2s;
+}
+
+.cp_option_list:hover {
+  transition: .2s;
+  opacity: .8;
+  background-color: #3f3f3f;
+  color: white;
+}
+
+.cp_option_list:last-child {
+  border-bottom: 0;
+}
+
+.show_image_list_container {
+  margin-left: 3px;
+}
+
+.cp_open_change_project {
+  transform: rotate(-90deg);
+}
+
+.cp_open_change_project.active {
+  transition: 1s;
+  transform: rotate(-180deg);
+}
+
+.change_project_container {
+  margin-left: 0;
+}

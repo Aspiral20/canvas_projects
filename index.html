@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas Online Editor</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div id="control_panel">
+  <div class="cursor_panel">
+    <button class="control_panel_toggle">⟁</button>
+    <div class="change_project_container cp_item">
+      <button type="button" class="change_project__button cp_main-button cp_photo_button">
+      </button>
+      <div class="change_project_toggle cp_toggle control_off cp_style_amount">
+        <div class="change_project_container cp_amount_container">
+          <div class="change_project_toggle">
+            <div class="change_project_input_container cp_input_container">
+              <input type="text" class="change_project_input_list cp_input_list" value="" disabled>
+              <div class="show_change_project_list_container cp_toggle_triangle_container">
+                <button class="cp_open_change_project cp_toggle_triangle" type="button">▲</button>
+              </div>
+            </div>
+            <div class="change_project_list cp_open_list">
+              <div class="change_project_option cp_option_list"></div>
+              <div class="change_project_option cp_option_list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--    Hotkeys -->
+    <div class="hotkeys_container cp_item">
+      <button class="hotkeys__button cp_main-button">
+        Hotkeys
+      </button>
+      <div class="hotkeys_toggle cp_toggle control_off">
+        <div class="hotkey_item">
+          <div class="hotkey_item_text">
+            <b>C</b> - clear screen
+          </div>
+          <div class="hotkey__description_container cp_toggle_triangle_container">
+            <button class="hotkey_item_description_button cp_toggle_triangle">
+              ▲
+            </button>
+          </div>
+          <div class="description_text">
+            Clear only screen.
+          </div>
+        </div>
+        <div class="hotkey_item">
+          <div class="hotkey_item_text">
+            <b>Alt + C</b> - clear saves
+          </div>
+          <div class="hotkey__description_container cp_toggle_triangle_container">
+            <button class="hotkey_item_description_button cp_toggle_triangle">
+              ▲
+            </button>
+          </div>
+          <div class="description_text">
+            Clear only coords saves.
+          </div>
+        </div>
+        <div class="hotkey_item">
+          <div class="hotkey_item_text">
+            <b>Shift + C</b> - clear all
+          </div>
+          <div class="hotkey__description_container cp_toggle_triangle_container">
+            <button class="hotkey_item_description_button cp_toggle_triangle">
+              ▲
+            </button>
+          </div>
+          <div class="description_text">
+            Clear screen and save.
+          </div>
+        </div>
+        <div class="hotkey_item">
+          <div class="hotkey_item_text">
+            <b>R</b> - replay
+          </div>
+          <div class="hotkey__description_container cp_toggle_triangle_container">
+            <button class="hotkey_item_description_button cp_toggle_triangle">
+              ▲
+            </button>
+          </div>
+          <div class="description_text">
+            Current save drops after using this hotkey. Then I'll call it as previous paint
+          </div>
+        </div>
+        <div class="hotkey_item">
+          <div class="hotkey_item_text">
+            <b>Shift + R</b> - Replay with transparent background
+          </div>
+          <div class="hotkey__description_container cp_toggle_triangle_container">
+            <button class="hotkey_item_description_button cp_toggle_triangle">
+              ▲
+            </button>
+          </div>
+          <div class="description_text">
+            Current save drops after using this hotkey. Then I'll call it as previous paint.
+          </div>
+        </div>
+        <div class="hotkey_item">
+          <div class="hotkey_item_text">
+            <b>S</b> - save
+          </div>
+          <div class="hotkey__description_container cp_toggle_triangle_container">
+            <button class="hotkey_item_description_button cp_toggle_triangle">
+              ▲
+            </button>
+          </div>
+          <div class="description_text">
+            Save current painting
+          </div>
+        </div>
+        <div class="hotkey_item">
+          <div class="hotkey_item_text">
+            <b>Alt + S</b> - save previous paint
+          </div>
+          <div class="hotkey__description_container cp_toggle_triangle_container">
+            <button class="hotkey_item_description_button cp_toggle_triangle">
+              ▲
+            </button>
+          </div>
+          <div class="description_text">
+            !!! Use it ( after replay "r" ) before you start painting.
+          </div>
+        </div>
+        <div class="hotkey_item">
+          <div class="hotkey_item_text">
+            <b>Shift + S</b> - save all paintings
+          </div>
+          <div class="hotkey__description_container cp_toggle_triangle_container">
+            <button class="hotkey_item_description_button cp_toggle_triangle">
+              ▲
+            </button>
+          </div>
+          <div class="description_text">
+            Save all
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  Colors -->
+    <div class="colors_container cp_item">
+      <button class="colors__button cp_main-button">
+        <div class="current_color cp_square_container"></div>
+      </button>
+      <div class="colors_toggle cp_toggle control_off">
+        <div class="default_colors">
+          <div class="colors__palette"><!--11-->
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+            <div class="color_block"></div>
+          </div>
+          <div class="input_palette">
+            <span class="text">Change:</span>
+            <input class="change_color" type="color">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  Size cursor -->
+    <div class="cursor_size_container cp_item">
+      <button type="button" class="cursor_size__button cp_main-button">
+        <div class="cursor__box cp_main-button_box">
+          <div class="cursor_size_pen cp_character">🖊</div>
+          <div class="cursor_size_number cp_main-button_number"></div>
+        </div>
+      </button>
+      <div class="cursor_size_toggle cp_toggle control_off cp_style_amount">
+        <div class="change_cursor_container cp_amount_container">
+          <button type="button" class="approve_cursor_size cp_amount_approve">OK</button>
+          <input class="cursor_size_change cp_amount_number" type="number" value=""/>
+        </div>
+      </div>
+    </div>
+    <!-- Replay speed -->
+    <div class="replay_speed_container cp_item">
+      <button type="button" class="replay_speed__button cp_main-button">
+        <div class="replay_speed__box cp_main-button_box">
+          <div class="replay_speed_pen cp_character">🔁</div>
+          <div class="replay_speed_number cp_main-button_number"></div>
+        </div>
+      </button>
+      <div class="replay_speed_toggle cp_toggle control_off cp_style_amount">
+        <div class="replay_speed_container cp_amount_container">
+          <button type="button" class="approve_replay_speed cp_amount_approve">OK</button>
+          <input class="replay_speed_change cp_amount_number" type="number" value=""/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another_control">
+    <!--  Image -->
+    <div class="background_image_container cp_item">
+      <button type="button" class="background_image__button cp_main-button cp_photo_button">
+      </button>
+      <div class="background_image_toggle cp_toggle control_off cp_style_amount">
+        <div class="background_image_container cp_amount_container">
+          <input type="checkbox" class="image_checkbox">
+          <div class="image_list_container">
+            <div class="image_input_container cp_input_container">
+              <input type="text" class="image_input_list cp_input_list" value="123" disabled>
+              <div class="show_image_list_container cp_toggle_triangle_container">
+                <button class="show_image_list cp_open_change_project cp_toggle_triangle" type="button">▲</button>
+              </div>
+            </div>
+            <div class="image_list cp_open_list">
+              <div class="image_option cp_option_list">bg_photo0.jpg</div>
+              <div class="image_option cp_option_list">bg_photo1.jpg</div>
+              <div class="image_option cp_option_list">bg_photo2.jpg</div>
+              <div class="image_option cp_option_list">bg_photo3.jpg</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<canvas id="canvas">Your browser is not supported. U mad bro.</canvas>
+
+<script src="prototypes/prototypes.js"></script>
+<script src="control_panel/change_project.js"></script>
+<script src="index.js"></script>
+<script src="control_panel/image.js"></script>
+<script src="control_panel/control_panel.js"></script>
+<script src="control_panel/colors.js"></script>
+<script src="control_panel/cursor_size.js"></script>
+<script src="control_panel/speed.js"></script>
+<script src="control_panel/hotkeys.js"></script>
+</body>
+</html>

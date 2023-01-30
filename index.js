@@ -1,6 +1,15 @@
+// import fishUrl from "./images/canvas_photos/glitch_photo/fish_photo.png";
+
+
+let canvas = document.getElementById('canvas'),
+  context = canvas.getContext('2d');
+
+
 if (LSProject) {
   switch (LSProject) {
     case "web_editor":
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
 
       window.onload = function () {     // transparent refresh
         let replayTransparent = sessionStorage.getItem("replayTransparent");
@@ -12,12 +21,6 @@ if (LSProject) {
           console.log('Session removed!')
         }
       }
-
-      let canvas = document.getElementById('canvas'),
-        context = canvas.getContext('2d');
-
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
 
       const localStorageColorKey = 'color'
       const colorBackground = 'transparent'
@@ -32,8 +35,6 @@ if (LSProject) {
       const localStorageKey = 'coords'
       let prevCoords = []
       let coords = []
-      let stopReplay = false;   //todo stop when replay
-
 
       const createArc = (e) => {
         context.arc(e.clientX, e.clientY, parseInt(localStorage.getItem(sizeCursorKey)), 0, Math.PI * 2)
@@ -186,8 +187,68 @@ if (LSProject) {
         }
         prevKey = e
       })
+
       break;
     case "glitch":
+      const canvasWidth = 900
+      const canvasHeight = 513
+      style(document.getElementById('body'), {
+        height: '100vh',
+        backgroundImage: 'linear-gradient(40deg, black 50%, blue)',
+        color: '#ccc',
+        overflow: 'hidden',
+      })
+
+      style(canvas, {
+        backgroundColor: 'transparent',
+        width: `${canvasWidth}px`,
+        height: `${canvasHeight}px`,
+        outline: '1px solid gray',
+        position: 'absolute',
+        top: '0',
+        right: '0',
+        bottom: '0',
+        left: '0',
+        margin: 'auto',
+      })
+
+      const widthImage = 500
+      const heightImage = 313
+      const image = new Image(widthImage, heightImage);
+      image.src = './images/canvas_photos/glitch_photo/fish_2.png'
+
+      let sliceImage = 1;
+      image.addEventListener('load', draw)
+
+      let speed = 0;
+      let intensivity = 5;
+      let smoothWaves = 25;
+
+    function draw() {
+      speed += 0.04
+
+      context.clearRect(0, 0, canvasWidth, canvasHeight)
+
+      for (let i = 0; i < widthImage; i++) {
+        context.drawImage(
+          image,
+
+          1.65 * i * sliceImage,
+          Math.sin(speed - (i / smoothWaves) * intensivity),
+          sliceImage,
+          heightImage * 2.05,
+
+          i * sliceImage,
+          0,
+          sliceImage,
+          heightImage
+        )
+      }
+
+      requestAnimationFrame(draw)
+    }
+
+      draw()
 
       break;
     default:

@@ -100,3 +100,15 @@ Object.prototype.projects = {
   web_editor: { value: 'Web editor', img: 'web_editor_project.jpg' },
   glitch: { value: 'Glitch effect', img: '' }
 }
+Object.prototype.LSClearFields = (LocalStorageFields) => {
+  try {
+    const LSFieldsValues = Object.values(LocalStorageFields)
+    if (LSFieldsValues.length) {
+      LSFieldsValues.forEach(field => typeof field === 'string' && localStorage.getItem(field) ?
+        localStorage.removeItem(field) :
+        console.log(`This field(${field}) didn't been found`))
+    }
+  } catch (e) {
+    throw new Error(e)
+  }
+}

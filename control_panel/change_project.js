@@ -52,6 +52,11 @@ if (LSProject) {
           changeProjectInputList.value = projectKeys[i]
 
           sessionStorage.setItem(LSProjectKey, 'control_panel')
+
+          ProjectsData.forEach(
+            project => project.project === localStorage.getItem('project') &&
+              Object.prototype.LSClearFields(Object.values(project.localStorage.unusedFields))
+          )
           location.reload()
         }
       })
